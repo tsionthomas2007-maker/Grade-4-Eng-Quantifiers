@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethiopian Grade 4 English: Interactive Quantifiers Quiz</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Google Fonts: Inter & Noto Sans Ethiopic for authentic Amharic rendering -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans Ethiopic', sans-serif;
+    }
+    .amharic-text {
+      font-family: 'Noto Sans Ethiopic', sans-serif;
+    }
+    .sound-wave {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      height: 18px;
+    }
+    .sound-bar {
+      width: 3px;
+      height: 100%;
+      background-color: #0d9488;
+      border-radius: 9999px;
+      animation: soundWaveAnim 1.2s ease-in-out infinite alternate;
+    }
+    .sound-bar:nth-child(1) { animation-delay: 0.1s; height: 35%; }
+    .sound-bar:nth-child(2) { animation-delay: 0.3s; height: 75%; }
+    .sound-bar:nth-child(3) { animation-delay: 0.5s; height: 100%; }
+    .sound-bar:nth-child(4) { animation-delay: 0.2s; height: 50%; }
+    @keyframes soundWaveAnim {
+      0% { height: 25%; }
+      100% { height: 100%; }
+    }
+    .option-button {
+      transition: all 0.2s ease-in-out;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-teal-200 selection:text-teal-900">
+
+  <header class="bg-gradient-to-r from-teal-900 via-teal-800 to-emerald-900 text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 text-yellow-300 text-xl font-bold shadow-sm">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
+            Grade 4 English <span class="text-xs bg-yellow-400 text-slate-900 font-extrabold px-2 py-0.5 rounded-full uppercase">Unit: Quantifiers</span>
+          </h1>
+          <p class="text-xs text-teal-200 hidden sm:block">Ethiopian Primary Curriculum • Assessment Portal</p>
+        </div>
+      </div>
+
+      <!-- Narrator Audio Control Button -->
+      <div class="flex items-center space-x-2">
+        <button id="narratorBtn" onclick="toggleNarratorSpeech()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-700/80 hover:bg-teal-700 text-teal-100 border border-teal-500/40 text-xs font-semibold transition active:scale-95 shadow-sm">
+          <i id="narratorIcon" class="fa-solid fa-volume-high text-yellow-300"></i>
+          <span id="narratorLabel">British Lady Narrator: ON</span>
+          <div id="soundWaveIndicator" class="sound-wave hidden">
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-6 flex flex-col justify-center">
+
+    <!-- SCREEN 1: REGISTRATION & INSTRUCTIONS -->
+    <section id="registrationScreen" class="bg-white rounded-2xl shadow-xl border border-slate-200/80 p-6 sm:p-8 transition-all duration-300">
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <div class="inline-flex p-3 rounded-2xl bg-teal-50 border border-teal-100 text-teal-700 mb-4">
+          <i class="fa-solid fa-book-open-reader text-3xl"></i>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Student Examination Portal</h2>
+        <p class="text-sm text-slate-600 mt-2">
+          Assessment on Quantifiers: <strong class="text-teal-800">some, any, much, many, both, and all</strong>.
+          Listen to your British teacher, answer questions, and receive explanations in English & Amharic.
+        </p>
+      </div>
+
+      <!-- Quick Rule Summary Card -->
+      <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-4 mb-8">
+        <div class="flex items-center gap-2 text-amber-800 font-bold text-sm mb-2">
+          <i class="fa-solid fa-lightbulb text-amber-600"></i>
+          <span>Textbook Quick Study Guide (የክለሳ ማጠቃለያ)</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs text-slate-700">
+          <div class="bg-white p-2 rounded-lg border border-amber-100 shadow-2xs"><strong>Many:</strong> Countable nouns (pens, cups, cows)</div>
+          <div class="bg-white p-2 rounded-lg border border-amber-100 shadow-2xs"><strong>Much:</strong> Uncountable nouns (milk, teff, salt)</div>
+          <div class="bg-white p-2 rounded-lg border border-amber-100 shadow-2xs"><strong>Some:</strong> Affirmative sentences (both types)</div>
+          <div class="bg-white p-2 rounded-lg border border-amber-100 shadow-2xs"><strong>Any:</strong> Negatives & questions (both types)</div>
+          <div class="bg-white p-2 rounded-lg border border-amber-100 shadow-2xs"><strong>Both:</strong> Strictly two persons or objects</div>
+          <div class="bg-white p-2 rounded-lg border border-amber-100 shadow-2xs"><strong>All:</strong> Three or more persons or objects</div>
+        </div>
+      </div>
+
+      <!-- Identification Form -->
+      <form id="studentIdForm" onsubmit="handleStartQuiz(event)" class="space-y-4 max-w-lg mx-auto">
+        <div>
+          <label for="studentName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+            Full Student Name <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-solid fa-user"></i>
+            </span>
+            <input type="text" id="studentName" required placeholder="e.g. Almaz Bekele / Tariku Tolosa"
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-teal-600 text-sm transition" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="studentId" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+              Student ID / Roll No <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                <i class="fa-solid fa-id-card"></i>
+              </span>
+              <input type="text" id="studentId" required placeholder="e.g. ETH-G4-024"
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-teal-600 text-sm transition" />
+            </div>
+          </div>
+          <div>
+            <label for="sectionGrade" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+              Grade & Section
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                <i class="fa-solid fa-chalkboard-user"></i>
+              </span>
+              <input type="text" id="sectionGrade" placeholder="e.g. Grade 4 - Section B" value="Grade 4 - Section A"
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-teal-600 text-sm transition" />
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <button type="submit"
+            class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-teal-700 to-emerald-700 hover:from-teal-800 hover:to-emerald-800 text-white font-bold text-base shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+            <span>Start Assessment Now</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- SCREEN 2: ACTIVE QUIZ VIEW -->
+    <section id="quizScreen" class="hidden flex-col gap-4">
+
+      <!-- Progress and Student Indicator Bar -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span id="activeStudentBadge" class="bg-teal-50 text-teal-800 font-semibold text-xs px-3 py-1.5 rounded-full border border-teal-200 flex items-center gap-1.5">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span id="badgeNameDisplay">Student</span>
+          </span>
+          <span id="sectionPartBadge" class="bg-slate-100 text-slate-700 font-semibold text-xs px-3 py-1.5 rounded-full">
+            Part I: Matching
+          </span>
+        </div>
+
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <div class="flex-1 sm:w-48 bg-slate-200 rounded-full h-2.5 overflow-hidden">
+            <div id="progressBar" class="bg-teal-600 h-2.5 rounded-full transition-all duration-300" style="width: 3%;"></div>
+          </div>
+          <span id="questionCounterText" class="text-xs font-bold text-slate-600 whitespace-nowrap">
+            Item 1 of 34
+          </span>
+        </div>
+      </div>
+
+      <!-- Question Card Container -->
+      <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-5 sm:p-7 relative transition-all">
+        
+        <!-- Question Meta & Speaker Action -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <span id="qNumTag" class="bg-teal-800 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg">Q1</span>
+            <span id="qPointsTag" class="text-xs text-slate-500 font-medium">(1 Mark)</span>
+          </div>
+
+          <!-- Speak current question with female British accent -->
+          <button onclick="speakCurrentQuestion()" title="Listen to question" class="text-xs font-semibold text-teal-700 bg-teal-50 hover:bg-teal-100 border border-teal-200 px-3 py-1.5 rounded-full transition flex items-center gap-1.5">
+            <i class="fa-solid fa-volume-high text-teal-600"></i>
+            <span>Read to Me</span>
+          </button>
+        </div>
+
+        <!-- Question Prompt Area -->
+        <div id="questionPromptArea" class="mb-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Question Interactive Options Area -->
+        <div id="interactiveOptionsArea" class="space-y-3 mb-6">
+          <!-- Populated dynamically via JS (Buttons, blanks, match grid) -->
+        </div>
+
+        <!-- Instant Feedback Box (Hidden until answer chosen) -->
+        <div id="feedbackContainer" class="hidden rounded-xl p-4 border transition-all duration-300 mb-6">
+          <div class="flex items-start gap-3">
+            <div id="feedbackIconWrapper" class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-base font-bold">
+              <!-- Check or Cross Icon -->
+            </div>
+            <div class="flex-1">
+              <h3 id="feedbackHeading" class="font-bold text-sm">Feedback Status</h3>
+              
+              <!-- English Explanation -->
+              <div class="mt-2 text-xs sm:text-sm text-slate-700 bg-white/70 p-2.5 rounded-lg border border-slate-200/60">
+                <span class="font-bold text-teal-800 block mb-0.5"><i class="fa-solid fa-flag-checkered mr-1"></i> English Explanation:</span>
+                <span id="feedbackExplanationEn">Explanation in English.</span>
+              </div>
+
+              <!-- Amharic Explanation -->
+              <div class="mt-2 text-xs sm:text-sm text-slate-800 bg-amber-50/80 p-2.5 rounded-lg border border-amber-200/80 amharic-text">
+                <span class="font-bold text-amber-900 block mb-0.5"><i class="fa-solid fa-language mr-1"></i> ዝርዝር ማብራሪያ (በአማርኛ):</span>
+                <span id="feedbackExplanationAm">ማብራሪያ በአማርኛ።</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons Controls -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100">
+          <button id="btnBack" onclick="navigateQuestion(-1)" class="px-4 py-2 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold text-sm transition flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Back</span>
+          </button>
+
+          <div class="flex items-center gap-2">
+            <button id="btnSkip" onclick="skipQuestion()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold text-sm transition flex items-center gap-1.5">
+              <span>Skip</span>
+              <i class="fa-solid fa-forward-step"></i>
+            </button>
+
+            <button id="btnNext" onclick="navigateQuestion(1)" class="px-5 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-md transition flex items-center gap-1.5">
+              <span id="nextBtnLabel">Next Item</span>
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <button id="btnSubmitQuiz" onclick="promptSubmitQuiz()" class="hidden px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md hover:shadow-lg transition flex items-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Final Submit</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: RESULTS & TEACHER DASHBOARD -->
+    <section id="resultsScreen" class="hidden bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8">
+      <div class="text-center max-w-lg mx-auto mb-6">
+        <div id="trophyIconWrapper" class="inline-flex p-4 rounded-2xl bg-teal-50 text-teal-700 border border-teal-100 text-4xl mb-3 shadow-inner">
+          <i class="fa-solid fa-trophy text-yellow-500"></i>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Quiz Completed!</h2>
+        <p class="text-sm text-slate-600 mt-1">Here is your verified performance report and teacher evaluation dashboard.</p>
+      </div>
+
+      <!-- Student & Score Summary Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <span class="text-xs uppercase font-bold text-slate-500 block">Student</span>
+          <span id="resStudentName" class="font-bold text-sm sm:text-base text-slate-800 break-words">-</span>
+          <span id="resStudentId" class="text-xs text-teal-700 font-semibold block">-</span>
+        </div>
+
+        <div class="bg-teal-50/70 p-4 rounded-xl border border-teal-200">
+          <span class="text-xs uppercase font-bold text-teal-700 block">Calculated Score</span>
+          <div class="flex items-baseline gap-1 mt-0.5">
+            <span id="resScoreText" class="text-2xl sm:text-3xl font-extrabold text-teal-900">0</span>
+            <span class="text-xs font-bold text-teal-700">/ 34 Items</span>
+          </div>
+          <span id="resScaledScore" class="text-xs font-semibold text-emerald-700 block">Scaled: 0 / 40 Marks</span>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <span class="text-xs uppercase font-bold text-slate-500 block">Accuracy</span>
+          <span id="resPercentage" class="text-2xl sm:text-3xl font-extrabold text-slate-800">0%</span>
+          <span id="resPassTag" class="text-xs font-bold px-2 py-0.5 rounded-full inline-block mt-0.5 bg-emerald-100 text-emerald-800">Pass</span>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <span class="text-xs uppercase font-bold text-slate-500 block">Completion Time</span>
+          <span id="resCompletionTime" class="text-lg sm:text-xl font-bold text-slate-800 block mt-1">-</span>
+          <span class="text-xs text-slate-500">Grade 4 Standard</span>
+        </div>
+      </div>
+
+      <!-- Teacher Submission & Email Direct Action -->
+      <div class="bg-gradient-to-br from-teal-900 to-emerald-950 text-white rounded-2xl p-5 mb-8 shadow-md">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="space-y-1 text-center md:text-left">
+            <h3 class="text-base sm:text-lg font-bold flex items-center justify-center md:justify-start gap-2">
+              <i class="fa-solid fa-envelope-circle-check text-yellow-300"></i>
+              <span>Teacher Notification System</span>
+            </h3>
+            <p class="text-xs sm:text-sm text-teal-200 max-w-lg">
+              Official score recipient: <strong class="text-white underline decoration-yellow-400">mesayferedegn2@gmail.com</strong>.
+              Click the button to automatically compile and send your verified score report via email.
+            </p>
+          </div>
+          
+          <button onclick="sendScoreEmail()" class="w-full md:w-auto px-6 py-3 rounded-xl bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-extrabold text-sm shadow-md transition flex items-center justify-center gap-2 shrink-0 active:scale-95">
+            <i class="fa-solid fa-paper-plane text-slate-900"></i>
+            <span>Send Score to Teacher</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Item by Item Review Breakdown Accordion / List -->
+      <div class="border border-slate-200 rounded-xl overflow-hidden mb-6">
+        <div class="bg-slate-100 px-4 py-3 border-b border-slate-200 flex items-center justify-between">
+          <h3 class="font-bold text-sm text-slate-800 flex items-center gap-2">
+            <i class="fa-solid fa-list-check text-teal-700"></i>
+            <span>Detailed Question Review & Explanations</span>
+          </h3>
+          <span class="text-xs text-slate-500">Review all 34 questions</span>
+        </div>
+        <div id="detailedReviewContainer" class="max-h-96 overflow-y-auto p-4 space-y-3 custom-scroll">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+        <button onclick="retakeAssessment()" class="px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-sm transition flex items-center gap-2">
+          <i class="fa-solid fa-rotate-right"></i>
+          <span>Retake Assessment</span>
+        </button>
+        <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-sm shadow transition flex items-center gap-2">
+          <i class="fa-solid fa-print"></i>
+          <span>Print / Save as PDF</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-200/70 border-t border-slate-300 py-3 text-center text-xs text-slate-600">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span>Grade 4 English • Ethiopian Primary School Curriculum Focus Unit</span>
+      <span>Designed with auto-grading, irreversible feedback & narrator</span>
+    </div>
+  </footer>
+
+  <!-- Notification Toast Modal -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 transition-transform duration-300 transform translate-y-32 pointer-events-none text-xs sm:text-sm font-medium">
+    <i id="toastIcon" class="fa-solid fa-info-circle text-teal-400 text-lg"></i>
+    <span id="toastMessage">Notification message here</span>
+  </div>
+
+  <script>
+    /**
+     * ALL 34 ITEMS FROM THE ETHIOPIAN GRADE 4 QUANTIFIERS EXAM
+     * Part I: 6 Matching items (side-by-side)
+     * Part II: 8 Fill-in-the-blank items (with word bank)
+     * Part III: 20 Multiple-Choice items
+     * Each item features rigorous bilingual explanations (English & Amharic)
+     */
+    const QUIZ_DATA = [
+      // ----------------------------------------------------
+      // PART I: MATCHING ITEMS (Items 1 to 6)
+      // ----------------------------------------------------
+      {
+        id: 1,
+        part: "Part I: Matching",
+        type: "matching",
+        stem: "Used with negative statements and questions",
+        columnB_Ref: "Column A Rule 1 ➔ Column B Options",
+        options: [
+          { key: "A", label: "A. Much (e.g., much tea, much teff)" },
+          { key: "B", label: "B. Many (e.g., many books, many pencils)" },
+          { key: "C", label: "C. Both (e.g., both his hands, both pupils)" },
+          { key: "D", label: "D. Any (e.g., isn't any salt, have you any tea?)" },
+          { key: "E", label: "E. All (e.g., all four brothers, all the sand)" },
+          { key: "F", label: "F. Some (e.g., some milk, some oranges)" }
+        ],
+        correctAnswer: "D",
+        points: 1,
+        explanationEn: "In English grammar, 'any' is strictly used with negative statements (sentences with 'not' or 'isn't') and questions.",
+        explanationAm: "'Any' በአሉታዊ ዓረፍተ ነገሮች (ከ 'not' ጋር) እና በጥያቄዎች ውስጥ ያገለግላል። (ምሳሌ፦ There isn't any salt.)"
+      },
+      {
+        id: 2,
+        part: "Part I: Matching",
+        type: "matching",
+        stem: "Used for talking strictly about two items or persons",
+        columnB_Ref: "Column A Rule 2 ➔ Column B Options",
+        options: [
+          { key: "A", label: "A. Much (e.g., much tea, much teff)" },
+          { key: "B", label: "B. Many (e.g., many books, many pencils)" },
+          { key: "C", label: "C. Both (e.g., both his hands, both pupils)" },
+          { key: "D", label: "D. Any (e.g., isn't any salt, have you any tea?)" },
+          { key: "E", label: "E. All (e.g., all four brothers, all the sand)" },
+          { key: "F", label: "F. Some (e.g., some milk, some oranges)" }
+        ],
+        correctAnswer: "C",
+        points: 1,
+        explanationEn: "'Both' is exclusively used when referring to exactly two persons, items, or objects (e.g., 'both his hands').",
+        explanationAm: "'Both' የሚያገለግለው በትክክል ስለ ሁለት ሰዎች ወይም ነገሮች ብቻ ስንናገር ነው። (ምሳሌ፦ Both the boy and the girl)"
+      },
+      {
+        id: 3,
+        part: "Part I: Matching",
+        type: "matching",
+        stem: "Used with countable nouns to show a large number",
+        columnB_Ref: "Column A Rule 3 ➔ Column B Options",
+        options: [
+          { key: "A", label: "A. Much (e.g., much tea, much teff)" },
+          { key: "B", label: "B. Many (e.g., many books, many pencils)" },
+          { key: "C", label: "C. Both (e.g., both his hands, both pupils)" },
+          { key: "D", label: "D. Any (e.g., isn't any salt, have you any tea?)" },
+          { key: "E", label: "E. All (e.g., all four brothers, all the sand)" },
+          { key: "F", label: "F. Some (e.g., some milk, some oranges)" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "'Many' is paired with plural countable nouns to represent a large quantity (e.g., many books, many pencils).",
+        explanationAm: "'Many' የሚቆጠሩ ስሞችን ብዛት ለመግለጽ ያገለግላል። (ምሳሌ፦ many books, many pencils)"
+      },
+      {
+        id: 4,
+        part: "Part I: Matching",
+        type: "matching",
+        stem: "Used with uncountable nouns to show a large amount",
+        columnB_Ref: "Column A Rule 4 ➔ Column B Options",
+        options: [
+          { key: "A", label: "A. Much (e.g., much tea, much teff)" },
+          { key: "B", label: "B. Many (e.g., many books, many pencils)" },
+          { key: "C", label: "C. Both (e.g., both his hands, both pupils)" },
+          { key: "D", label: "D. Any (e.g., isn't any salt, have you any tea?)" },
+          { key: "E", label: "E. All (e.g., all four brothers, all the sand)" },
+          { key: "F", label: "F. Some (e.g., some milk, some oranges)" }
+        ],
+        correctAnswer: "A",
+        points: 1,
+        explanationEn: "'Much' is used with uncountable nouns (nouns that cannot be counted, such as teff, milk, salt, sand) to indicate a large amount.",
+        explanationAm: "'Much' ለማይቆጠሩ ስሞች (እንደ ጤፍ፣ ወተት፣ ጨው፣ አሸዋ) ከፍተኛ መጠንን ለማሳየት ያገለግላል።"
+      },
+      {
+        id: 5,
+        part: "Part I: Matching",
+        type: "matching",
+        stem: "Used in positive statements with both countable & uncountable",
+        columnB_Ref: "Column A Rule 5 ➔ Column B Options",
+        options: [
+          { key: "A", label: "A. Much (e.g., much tea, much teff)" },
+          { key: "B", label: "B. Many (e.g., many books, many pencils)" },
+          { key: "C", label: "C. Both (e.g., both his hands, both pupils)" },
+          { key: "D", label: "D. Any (e.g., isn't any salt, have you any tea?)" },
+          { key: "E", label: "E. All (e.g., all four brothers, all the sand)" },
+          { key: "F", label: "F. Some (e.g., some milk, some oranges)" }
+        ],
+        correctAnswer: "F",
+        points: 1,
+        explanationEn: "'Some' is used in affirmative (positive) statements with both countable nouns (e.g., some oranges) and uncountable nouns (e.g., some milk).",
+        explanationAm: "'Some' በአዎንታዊ (positive) ዓረፍተ ነገሮች ለሚቆጠሩም ለማይቆጠሩም ስሞች ያገለግላል። (ምሳሌ፦ some milk, some oranges)"
+      },
+      {
+        id: 6,
+        part: "Part I: Matching",
+        type: "matching",
+        stem: "Used when referring to every member of three or more",
+        columnB_Ref: "Column A Rule 6 ➔ Column B Options",
+        options: [
+          { key: "A", label: "A. Much (e.g., much tea, much teff)" },
+          { key: "B", label: "B. Many (e.g., many books, many pencils)" },
+          { key: "C", label: "C. Both (e.g., both his hands, both pupils)" },
+          { key: "D", label: "D. Any (e.g., isn't any salt, have you any tea?)" },
+          { key: "E", label: "E. All (e.g., all four brothers, all the sand)" },
+          { key: "F", label: "F. Some (e.g., some milk, some oranges)" }
+        ],
+        correctAnswer: "E",
+        points: 1,
+        explanationEn: "'All' is used when referring to every person, item, or object in a group of three or more (e.g., all four brothers).",
+        explanationAm: "'All' ከሶስት እና ከዚያ በላይ ለሆኑ ሰዎች ወይም ነገሮች ሁሉንም በአንድነት ለመጥቀስ ያገለግላል።"
+      },
+
+      // ----------------------------------------------------
+      // PART II: FILL IN THE BLANKS (Items 7 to 14)
+      // ----------------------------------------------------
+      {
+        id: 7,
+        part: "Part II: Fill in the Blank",
+        type: "fill_blank",
+        sentence: "1. Mother bought _______ fresh teff at the local market.",
+        stem: "Choose the correct word to fill in the blank:",
+        options: ["some", "any", "much", "many", "both", "all"],
+        correctAnswer: "some",
+        points: 1,
+        explanationEn: "'Teff' is an uncountable noun. Because this is a positive affirmative statement, 'some' is the correct choice.",
+        explanationAm: "'Teff' (ጤፍ) የማይቆጠር ስም ነው። ዓረፍተ ነገሩ አዎንታዊ በመሆኑ ትክክለኛው ቃል 'some' ነው።"
+      },
+      {
+        id: 8,
+        part: "Part II: Fill in the Blank",
+        type: "fill_blank",
+        sentence: "2. There isn't _______ salt left in the kitchen jar.",
+        stem: "Choose the correct word to fill in the blank:",
+        options: ["some", "any", "much", "many", "both", "all"],
+        correctAnswer: "any",
+        points: 1,
+        explanationEn: "The contraction 'isn't' creates a negative sentence. We use 'any' with uncountable nouns in negative sentences.",
+        explanationAm: "ዓረፍተ ነገሩ 'isn't' (አሉታዊ/negative) ስላለው፣ ለማይቆጠረው ስም (salt) 'any' ተገቢ ነው።"
+      },
+      {
+        id: 9,
+        part: "Part II: Fill in the Blank",
+        type: "fill_blank",
+        sentence: "3. How _______ cups of warm milk do you drink daily?",
+        stem: "Choose the correct word to fill in the blank:",
+        options: ["some", "any", "much", "many", "both", "all"],
+        correctAnswer: "many",
+        points: 1,
+        explanationEn: "'Cups' is a countable plural noun. When asking about the number of countable items, we use 'How many'.",
+        explanationAm: "'Cups' (የወተት ሲኒዎች) የሚቆጠር ስም በመሆኑ ብዛቱን ለመጠየቅ 'How many' እንጠቀማለን።"
+      },
+      {
+        id: 10,
+        part: "Part II: Fill in the Blank",
+        type: "fill_blank",
+        sentence: "4. Farmer Tolosa does not have _______ water in the well.",
+        stem: "Choose the correct word to fill in the blank:",
+        options: ["some", "any", "much", "many", "both", "all"],
+        correctAnswer: "any",
+        acceptableAnswers: ["any", "much"],
+        points: 1,
+        explanationEn: "In negative sentences with 'does not have' and uncountable 'water', 'any' (or 'much') is grammatically correct as defined in the textbook guide.",
+        explanationAm: "'Water' የማይቆጠር ስም ሲሆን ዓረፍተ ነገሩ አሉታዊ (does not have) ስለሆነ 'any' (ወይም 'much') ትክክለኛ መልስ ነው።"
+      },
+      {
+        id: 11,
+        part: "Part II: Fill in the Blank",
+        type: "fill_blank",
+        sentence: "5. Chaltu has two sisters, and _______ of them are teachers.",
+        stem: "Choose the correct word to fill in the blank:",
+        options: ["some", "any", "much", "many", "both", "all"],
+        correctAnswer: "both",
+        points: 1,
+        explanationEn: "The sentence explicitly specifies 'two sisters'. The textbook specifies 'both' for talking strictly about two persons.",
+        explanationAm: "ዓረፍተ ነገሩ ስለ ሁለት እህቶች (two sisters) ስለሚናገር፣ ለሁለት ሰዎች 'both' እንጠቀማለን።"
+      },
+      {
+        id: 12,
+        part: "Part II: Fill in the Blank",
+        type: "fill_blank",
+        sentence: "6. The builder poured _______ sand onto the wheelbarrow.",
+        stem: "Choose the correct word to fill in the blank:",
+        options: ["some", "any", "much", "many", "both", "all"],
+        correctAnswer: "some",
+        points: 1,
+        explanationEn: "'Sand' is an uncountable noun in a positive affirmative sentence. We use 'some' to indicate an unspecified amount.",
+        explanationAm: "'Sand' (አሸዋ) የማይቆጠር ስም ሲሆን፣ አዎንታዊ በሆነ ዓረፍተ ነገር ውስጥ 'some' ያገለግላል።"
+      },
+      {
+        id: 13,
+        part: "Part II: Fill in the Blank",
+        type: "fill_blank",
+        sentence: "7. Are there _______ sweet oranges left in the basket?",
+        stem: "Choose the correct word to fill in the blank:",
+        options: ["some", "any", "much", "many", "both", "all"],
+        correctAnswer: "any",
+        points: 1,
+        explanationEn: "This is a direct question ('Are there...?'). According to the Grade 4 grammar rule, 'any' is used in questions.",
+        explanationAm: "ዓረፍተ ነገሩ ጥያቄ በመሆኑ (Are there...?)፣ በደንቡ መሰረት ለጥያቄ 'any' እንጠቀማለን።"
+      },
+      {
+        id: 14,
+        part: "Part II: Fill in the Blank",
+        type: "fill_blank",
+        sentence: "8. There are four goats in the pen, and _______ of them are black.",
+        stem: "Choose the correct word to fill in the blank:",
+        options: ["some", "any", "much", "many", "both", "all"],
+        correctAnswer: "all",
+        points: 1,
+        explanationEn: "There are four goats (three or more). The rule states: 'Use all to talk about three and more persons, things, or objects.'",
+        explanationAm: "የፍየሎቹ ብዛት አራት (ከ3 በላይ) ስለሆነ፣ በመጽሐፉ ደንብ መሰረት ለሶስትና ከዚያ በላይ 'all' እንጠቀማለን።"
+      },
+
+      // ----------------------------------------------------
+      // PART III: MULTIPLE CHOICE (Items 15 to 34 / Q1 to Q20)
+      // ----------------------------------------------------
+      {
+        id: 15,
+        part: "Part III: Multiple Choice (Q1)",
+        type: "mcq",
+        stem: "1. My grandmother puts _______ sugar in her hot tea.",
+        options: [
+          { key: "A", text: "many" },
+          { key: "B", text: "some" },
+          { key: "C", text: "both" },
+          { key: "D", text: "any" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "'Sugar' is an uncountable noun used in a positive statement. 'Some' is the correct quantifier ('many' is only for countable nouns).",
+        explanationAm: "'Sugar' (ስኳር) የማይቆጠር ስም ነው፤ ዓረፍተ ነገሩም አዎንታዊ በመሆኑ 'some' ትክክለኛ ምርጫ ነው።"
+      },
+      {
+        id: 16,
+        part: "Part III: Multiple Choice (Q2)",
+        type: "mcq",
+        stem: "2. We do not have _______ meat for dinner tonight.",
+        options: [
+          { key: "A", text: "some" },
+          { key: "B", text: "any" },
+          { key: "C", text: "many" },
+          { key: "D", text: "both" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "'Do not have' makes this a negative sentence. The rule states: 'Use any with negatives and questions.'",
+        explanationAm: "'Do not have' አሉታዊ (negative) ዓረፍተ ነገር በመሆኑ 'any' ትክክለኛው መልስ ነው።"
+      },
+      {
+        id: 17,
+        part: "Part III: Multiple Choice (Q3)",
+        type: "mcq",
+        stem: "3. How _______ glasses of water did you drink after running?",
+        options: [
+          { key: "A", text: "much" },
+          { key: "B", text: "any" },
+          { key: "C", text: "many" },
+          { key: "D", text: "all" }
+        ],
+        correctAnswer: "C",
+        points: 1,
+        explanationEn: "'Glasses' is a plural countable noun. We ask 'How many' for countable nouns.",
+        explanationAm: "'Glasses of water' (የውሃ ብርጭቆዎች) የሚቆጠሩ በመሆናቸው 'How many' እንጠቀማለን።"
+      },
+      {
+        id: 18,
+        part: "Part III: Multiple Choice (Q4)",
+        type: "mcq",
+        stem: "4. There isn't _______ sand near the river bank.",
+        options: [
+          { key: "A", text: "many" },
+          { key: "B", text: "some" },
+          { key: "C", text: "any" },
+          { key: "D", text: "both" }
+        ],
+        correctAnswer: "C",
+        points: 1,
+        explanationEn: "'Isn't' is a negative verb. 'Any' is the standard quantifier for uncountable nouns in negative sentences.",
+        explanationAm: "'Isn't' አሉታዊ ዓረፍተ ነገር ሲሆን፣ ለማይቆጠር ስም (sand) 'any' ይመረጣል።"
+      },
+      {
+        id: 19,
+        part: "Part III: Multiple Choice (Q5)",
+        type: "mcq",
+        stem: "5. Tariku has two oxen. _______ of them are strong.",
+        options: [
+          { key: "A", text: "All" },
+          { key: "B", text: "Both" },
+          { key: "C", text: "Much" },
+          { key: "D", text: "Any" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "Tariku has exactly two oxen. 'Use both to talk about two persons, things or objects.'",
+        explanationAm: "ታሪኩ ሁለት በሬዎች (two oxen) ስላሉት፣ ለሁለት ነገሮች 'Both' እንጠቀማለን።"
+      },
+      {
+        id: 20,
+        part: "Part III: Multiple Choice (Q6)",
+        type: "mcq",
+        stem: "6. The farmer stored _______ bags of teff in the storehouse.",
+        options: [
+          { key: "A", text: "much" },
+          { key: "B", text: "any" },
+          { key: "C", text: "many" },
+          { key: "D", text: "both" }
+        ],
+        correctAnswer: "C",
+        points: 1,
+        explanationEn: "'Bags' is a plural countable noun (one bag, two bags). We use 'many' with countable nouns.",
+        explanationAm: "'Bags of teff' (የጤፍ ከረጢቶች) የሚቆጠር ስም በመሆኑ 'many' ትክክለኛ ምርጫ ነው።"
+      },
+      {
+        id: 21,
+        part: "Part III: Multiple Choice (Q7)",
+        type: "mcq",
+        stem: "7. Is there _______ salt in the shiro wot?",
+        options: [
+          { key: "A", text: "any" },
+          { key: "B", text: "many" },
+          { key: "C", text: "both" },
+          { key: "D", text: "all" }
+        ],
+        correctAnswer: "A",
+        points: 1,
+        explanationEn: "This is a question asking about uncountable 'salt'. The rule clearly states: 'Use any with negatives and questions.'",
+        explanationAm: "ዓረፍተ ነገሩ ጥያቄ ነው፤ የማይቆጠር ስምን (salt) በምንጠይቅበት ጊዜ 'any' እንጠቀማለን።"
+      },
+      {
+        id: 22,
+        part: "Part III: Multiple Choice (Q8)",
+        type: "mcq",
+        stem: "8. Our cow produces _______ milk every morning.",
+        options: [
+          { key: "A", text: "many" },
+          { key: "B", text: "much" },
+          { key: "C", text: "any" },
+          { key: "D", text: "both" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "'Milk' is an uncountable noun. We use 'much' to express a large quantity of an uncountable noun.",
+        explanationAm: "'Milk' (ወተት) የማይቆጠር ስም በመሆኑ ከፍተኛ መጠንን ለማሳየት 'much' እንጠቀማለን።"
+      },
+      {
+        id: 23,
+        part: "Part III: Multiple Choice (Q9)",
+        type: "mcq",
+        stem: "9. Helen invited five friends, and _______ of them arrived.",
+        options: [
+          { key: "A", text: "both" },
+          { key: "B", text: "much" },
+          { key: "C", text: "all" },
+          { key: "D", text: "any" }
+        ],
+        correctAnswer: "C",
+        points: 1,
+        explanationEn: "Helen invited five friends (three or more). The textbook rule states: 'Use all to talk about three and more persons.'",
+        explanationAm: "ሄለን የጋበዘቻቸው 5 ጓደኞች (ከሶስት በላይ) ስለሆኑ 'all' ተገቢው ቃል ነው።"
+      },
+      {
+        id: 24,
+        part: "Part III: Multiple Choice (Q10)",
+        type: "mcq",
+        stem: "10. There are _______ ripe bananas on the plate.",
+        options: [
+          { key: "A", text: "much" },
+          { key: "B", text: "some" },
+          { key: "C", text: "any" },
+          { key: "D", text: "none" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "In an affirmative statement with a plural countable noun ('bananas'), 'some' expresses an unspecified quantity.",
+        explanationAm: "አዎንታዊ በሆነ ዓረፍተ ነገር ውስጥ ለሚቆጠረው ስም (bananas) 'some' ትክክለኛ ምርጫ ነው።"
+      },
+      {
+        id: 25,
+        part: "Part III: Multiple Choice (Q11)",
+        type: "mcq",
+        stem: "11. Did father bring _______ meat from the butcher?",
+        options: [
+          { key: "A", text: "any" },
+          { key: "B", text: "many" },
+          { key: "C", text: "both" },
+          { key: "D", text: "all" }
+        ],
+        correctAnswer: "A",
+        points: 1,
+        explanationEn: "This sentence begins with 'Did' and is a question. We use 'any' in questions with uncountable nouns like 'meat'.",
+        explanationAm: "ዓረፍተ ነገሩ ጥያቄ ስለሆነ፣ ለማይቆጠረው ስም (meat) 'any' ይመረጣል።"
+      },
+      {
+        id: 26,
+        part: "Part III: Multiple Choice (Q12)",
+        type: "mcq",
+        stem: "12. You have two eyes, and _______ of them can see clearly.",
+        options: [
+          { key: "A", text: "all" },
+          { key: "B", text: "much" },
+          { key: "C", text: "both" },
+          { key: "D", text: "any" }
+        ],
+        correctAnswer: "C",
+        points: 1,
+        explanationEn: "Humans have two eyes. We use 'both' when referring to exactly two body parts or objects.",
+        explanationAm: "አንድ ሰው ሁለት ዓይኖች (two eyes) ስላሉት፣ ለሁለት ነገሮች 'both' እንጠቀማለን።"
+      },
+      {
+        id: 27,
+        part: "Part III: Multiple Choice (Q13)",
+        type: "mcq",
+        stem: "13. The merchant does not sell _______ teff today.",
+        options: [
+          { key: "A", text: "many" },
+          { key: "B", text: "any" },
+          { key: "C", text: "both" },
+          { key: "D", text: "all" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "'Does not sell' is a negative statement. We use 'any' with uncountable nouns in negative sentences.",
+        explanationAm: "'Does not sell' አሉታዊ ዓረፍተ ነገር ሲሆን፣ ለማይቆጠር ስም (teff) 'any' ትክክለኛ ነው።"
+      },
+      {
+        id: 28,
+        part: "Part III: Multiple Choice (Q14)",
+        type: "mcq",
+        stem: "14. How _______ sand is needed to plaster the classroom wall?",
+        options: [
+          { key: "A", text: "many" },
+          { key: "B", text: "much" },
+          { key: "C", text: "both" },
+          { key: "D", text: "all" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "'Sand' cannot be counted individually. We use 'How much' to inquire about the quantity of uncountable nouns.",
+        explanationAm: "'Sand' (አሸዋ) የማይቆጠር ስም ስለሆነ፣ መጠኑን ለመጠየቅ 'How much' እንጠቀማለን።"
+      },
+      {
+        id: 29,
+        part: "Part III: Multiple Choice (Q15)",
+        type: "mcq",
+        stem: "15. The teacher gave _______ pencils to the top students.",
+        options: [
+          { key: "A", text: "much" },
+          { key: "B", text: "some" },
+          { key: "C", text: "any" },
+          { key: "D", text: "little" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "This is a positive affirmative statement about countable objects ('pencils'). 'Some' fits naturally and accurately.",
+        explanationAm: "ዓረፍተ ነገሩ አዎንታዊ ሲሆን ለሚቆጠሩ እርሳሶች (pencils) 'some' ትክክለኛ ቃል ነው።"
+      },
+      {
+        id: 30,
+        part: "Part III: Multiple Choice (Q16)",
+        type: "mcq",
+        stem: "16. _______ the boys and the girls played football together.",
+        options: [
+          { key: "A", text: "Much" },
+          { key: "B", text: "Any" },
+          { key: "C", text: "Both" },
+          { key: "D", text: "One" }
+        ],
+        correctAnswer: "C",
+        points: 1,
+        explanationEn: "The correlative structure 'Both [group 1] and [group 2]' pairs two entities ('the boys and the girls').",
+        explanationAm: "ስለ ሁለት ወገኖች (ወንዶቹና ሴቶቹ) የሚያወራ በመሆኑ 'Both' ተገቢው ምርጫ ነው።"
+      },
+      {
+        id: 31,
+        part: "Part III: Multiple Choice (Q17)",
+        type: "mcq",
+        stem: "17. Do you drink _______ tea before walking to school?",
+        options: [
+          { key: "A", text: "many" },
+          { key: "B", text: "any" },
+          { key: "C", text: "both" },
+          { key: "D", text: "few" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "This sentence is a question regarding the uncountable liquid noun 'tea'. 'Any' is used in interrogative sentences.",
+        explanationAm: "ይህ ዓረፍተ ነገር የማይቆጠረውን ሻይ (tea) የሚጠይቅ በመሆኑ 'any' ትክክለኛ መልስ ነው።"
+      },
+      {
+        id: 32,
+        part: "Part III: Multiple Choice (Q18)",
+        type: "mcq",
+        stem: "18. We planted ten trees, and _______ of them are growing well.",
+        options: [
+          { key: "A", text: "both" },
+          { key: "B", text: "much" },
+          { key: "C", text: "all" },
+          { key: "D", text: "any" }
+        ],
+        correctAnswer: "C",
+        points: 1,
+        explanationEn: "There are ten trees (far more than two). 'Use all to talk about three and more persons, things or objects.'",
+        explanationAm: "አስር ዛፎች (ከሁለት በላይ የሆኑ) ስላሉ፣ ሁሉንም ለመግለጽ 'all' እንጠቀማለን።"
+      },
+      {
+        id: 33,
+        part: "Part III: Multiple Choice (Q19)",
+        type: "mcq",
+        stem: "19. Mother says: \"Please pour _______ clean water into the pot.\"",
+        options: [
+          { key: "A", text: "some" },
+          { key: "B", text: "many" },
+          { key: "C", text: "any" },
+          { key: "D", text: "both" }
+        ],
+        correctAnswer: "A",
+        points: 1,
+        explanationEn: "This is a polite request/affirmative instruction with uncountable 'water'. 'Some' is the standard quantifier.",
+        explanationAm: "ትዕዛዙ/ጥያቄው አዎንታዊ ሲሆን ለማይቆጠር ውሃ (water) 'some' ትክክለኛ ቃል ነው።"
+      },
+      {
+        id: 34,
+        part: "Part III: Multiple Choice (Q20)",
+        type: "mcq",
+        stem: "20. Bekele doesn't have _______ sugar to bake the bread.",
+        options: [
+          { key: "A", text: "many" },
+          { key: "B", text: "any" },
+          { key: "C", text: "some" },
+          { key: "D", text: "both" }
+        ],
+        correctAnswer: "B",
+        points: 1,
+        explanationEn: "'Doesn't have' is negative. For uncountable nouns in negative sentences, we strictly use 'any'.",
+        explanationAm: "'Doesn't have' አሉታዊ በመሆኑ ለማይቆጠረው ስኳር (sugar) 'any' ተገቢ ነው።"
+      }
+    ];
+
+    // State Variables
+    let currentQuestionIndex = 0;
+    let studentResponses = {}; // questionId -> chosen answer
+    let quizStartTime = null;
+    let quizEndTime = null;
+    let narratorEnabled = true;
+    let britishVoice = null;
+    let isSpeaking = false;
+
+    function initSpeechSynthesis() {
+      if (!('speechSynthesis' in window)) {
+        console.warn('Speech synthesis not supported in this browser.');
+        document.getElementById('narratorBtn').style.display = 'none';
+        return;
+      }
+
+      function pickBritishVoice() {
+        const voices = window.speechSynthesis.getVoices();
+        // Priority 1: British Female Voice
+        britishVoice = voices.find(v => v.lang.includes('en-GB') && (v.name.includes('Female') || v.name.includes('Libby') || v.name.includes('Sonia') || v.name.includes('Victoria') || v.name.includes('Hazel') || v.name.includes('Google UK English Female')));
+        
+        // Priority 2: Any British Voice
+        if (!britishVoice) {
+          britishVoice = voices.find(v => v.lang === 'en-GB' || v.lang.startsWith('en-GB'));
+        }
+        
+        // Priority 3: Any English Female Voice
+        if (!britishVoice) {
+          britishVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Zira') || v.name.includes('Samantha')));
+        }
+
+        // Fallback: Any English Voice
+        if (!britishVoice) {
+          britishVoice = voices.find(v => v.lang.startsWith('en'));
+        }
+      }
+
+      pickBritishVoice();
+      if (speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = pickBritishVoice;
+      }
+    }
+
+    function toggleNarratorSpeech() {
+      narratorEnabled = !narratorEnabled;
+      const label = document.getElementById('narratorLabel');
+      const icon = document.getElementById('narratorIcon');
+      if (narratorEnabled) {
+        label.textContent = "British Lady Narrator: ON";
+        icon.className = "fa-solid fa-volume-high text-yellow-300";
+        showToast("British narrator enabled.", "info");
+      } else {
+        window.speechSynthesis.cancel();
+        label.textContent = "Narrator: MUTED";
+        icon.className = "fa-solid fa-volume-xmark text-slate-400";
+        setWaveState(false);
+        showToast("Narrator muted.", "info");
+      }
+    }
+
+    function setWaveState(active) {
+      const wave = document.getElementById('soundWaveIndicator');
+      if (active && narratorEnabled) {
+        wave.classList.remove('hidden');
+      } else {
+        wave.classList.add('hidden');
+      }
+    }
+
+    function speakText(text) {
+      if (!narratorEnabled || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+
+      const cleanText = text.replace(/_+/g, "blank").replace(/[➔•*]/g, "");
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+      if (britishVoice) {
+        utterance.voice = britishVoice;
+      }
+      utterance.rate = 0.92; // Clear, measured pace for Grade 4 primary students
+      utterance.pitch = 1.05;
+
+      utterance.onstart = () => setWaveState(true);
+      utterance.onend = () => setWaveState(false);
+      utterance.onerror = () => setWaveState(false);
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function speakCurrentQuestion() {
+      const q = QUIZ_DATA[currentQuestionIndex];
+      let narration = "";
+      if (q.type === 'mcq') {
+        narration = `Question ${q.id - 14}: ${q.stem}. Please choose the best option.`;
+      } else if (q.type === 'matching') {
+        narration = `Part 1 Matching Item ${q.id}. Context: ${q.stem}. Select the correct quantifier from column B.`;
+      } else {
+        narration = `Fill in the blank item ${q.id - 6}. ${q.sentence}. Choose the correct word.`;
+      }
+      speakText(narration);
+    }
+
+    function handleStartQuiz(event) {
+      event.preventDefault();
+      const nameInput = document.getElementById('studentName').value.trim();
+      const idInput = document.getElementById('studentId').value.trim();
+
+      if (!nameInput || !idInput) {
+        showToast("Please provide both your Name and ID number.", "error");
+        return;
+      }
+
+      document.getElementById('badgeNameDisplay').textContent = nameInput;
+      document.getElementById('registrationScreen').classList.add('hidden');
+      document.getElementById('quizScreen').classList.remove('hidden');
+      document.getElementById('quizScreen').classList.add('flex');
+
+      quizStartTime = new Date();
+      currentQuestionIndex = 0;
+      renderCurrentQuestion();
+      showToast(`Welcome ${nameInput}! Best of luck!`, "info");
+    }
+
+    function renderCurrentQuestion() {
+      const q = QUIZ_DATA[currentQuestionIndex];
+      const isAnswered = studentResponses.hasOwnProperty(q.id);
+      const studentAns = studentResponses[q.id];
+
+      // Update Header Badges
+      document.getElementById('sectionPartBadge').textContent = q.part;
+      document.getElementById('qNumTag').textContent = `Item ${q.id} of 34`;
+      document.getElementById('questionCounterText').textContent = `${currentQuestionIndex + 1} / ${QUIZ_DATA.length}`;
+      
+      const progressPercent = Math.round(((currentQuestionIndex + 1) / QUIZ_DATA.length) * 100);
+      document.getElementById('progressBar').style.width = `${progressPercent}%`;
+
+      // Prompt Container
+      const promptArea = document.getElementById('questionPromptArea');
+      promptArea.innerHTML = '';
+
+      if (q.type === 'matching') {
+        promptArea.innerHTML = `
+          <div class="bg-teal-50/70 border border-teal-200 rounded-xl p-4">
+            <span class="text-xs font-bold text-teal-800 uppercase tracking-wide block mb-1">
+              Part I: Matching Side-by-Side Reference
+            </span>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+              <div class="md:col-span-7 bg-white p-3 rounded-lg border border-teal-100 shadow-2xs">
+                <span class="text-xs font-bold text-slate-500 block">Column A (Rule/Context)</span>
+                <p class="text-sm sm:text-base font-bold text-slate-900 mt-0.5">${q.stem}</p>
+              </div>
+              <div class="md:col-span-1 flex justify-center text-teal-600 font-bold text-lg">
+                <i class="fa-solid fa-arrow-right hidden md:block"></i>
+                <i class="fa-solid fa-arrow-down md:hidden"></i>
+              </div>
+              <div class="md:col-span-4 bg-white p-3 rounded-lg border border-teal-100 shadow-2xs">
+                <span class="text-xs font-bold text-slate-500 block">Action</span>
+                <p class="text-xs font-semibold text-teal-700 mt-0.5">Select matching letter from Column B below:</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (q.type === 'fill_blank') {
+        promptArea.innerHTML = `
+          <div>
+            <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-3 mb-4">
+              <span class="text-xs font-bold text-amber-900 block mb-1">
+                <i class="fa-solid fa-box-archive mr-1"></i> Word Bank (የቃላት ሳጥን):
+              </span>
+              <div class="flex flex-wrap gap-2 text-xs font-bold text-teal-900">
+                <span class="bg-white px-2.5 py-1 rounded-md border border-amber-300">some</span>
+                <span class="bg-white px-2.5 py-1 rounded-md border border-amber-300">any</span>
+                <span class="bg-white px-2.5 py-1 rounded-md border border-amber-300">much</span>
+                <span class="bg-white px-2.5 py-1 rounded-md border border-amber-300">many</span>
+                <span class="bg-white px-2.5 py-1 rounded-md border border-amber-300">both</span>
+                <span class="bg-white px-2.5 py-1 rounded-md border border-amber-300">all</span>
+              </div>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200">
+              ${highlightBlank(q.sentence, isAnswered ? studentAns : null, isAnswered ? q.correctAnswer : null)}
+            </h3>
+          </div>
+        `;
+      } else {
+        promptArea.innerHTML = `
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200">
+            ${highlightBlank(q.stem, isAnswered ? studentAns : null, isAnswered ? q.correctAnswer : null)}
+          </h3>
+        `;
+      }
+
+      // Render Options
+      const optionsArea = document.getElementById('interactiveOptionsArea');
+      optionsArea.innerHTML = '';
+
+      if (q.type === 'matching') {
+        const grid = document.createElement('div');
+        grid.className = "grid grid-cols-1 sm:grid-cols-2 gap-2.5";
+
+        q.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = `option-button text-left p-3.5 rounded-xl border font-semibold text-xs sm:text-sm flex items-center justify-between transition ${getOptionStyle(opt.key, isAnswered, studentAns, q.correctAnswer)}`;
+          btn.disabled = isAnswered; // IRREVERSIBLE ONCE CHOSEN
+          btn.onclick = () => handleAnswerSelect(opt.key);
+          btn.innerHTML = `
+            <span>${opt.label}</span>
+            ${getChoiceStatusIcon(opt.key, isAnswered, studentAns, q.correctAnswer)}
+          `;
+          grid.appendChild(btn);
+        });
+        optionsArea.appendChild(grid);
+
+      } else if (q.type === 'fill_blank') {
+        const grid = document.createElement('div');
+        grid.className = "grid grid-cols-2 sm:grid-cols-3 gap-2.5";
+
+        q.options.forEach(word => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = `option-button text-center p-3 rounded-xl border font-bold text-sm transition capitalize ${getOptionStyle(word, isAnswered, studentAns, q.correctAnswer)}`;
+          btn.disabled = isAnswered; // IRREVERSIBLE
+          btn.onclick = () => handleAnswerSelect(word);
+          btn.innerHTML = `
+            <span>${word}</span>
+            ${getChoiceStatusIcon(word, isAnswered, studentAns, q.correctAnswer)}
+          `;
+          grid.appendChild(btn);
+        });
+        optionsArea.appendChild(grid);
+
+      } else {
+        const list = document.createElement('div');
+        list.className = "grid grid-cols-1 sm:grid-cols-2 gap-2.5";
+
+        q.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = `option-button text-left p-3.5 rounded-xl border font-semibold text-sm flex items-center justify-between transition ${getOptionStyle(opt.key, isAnswered, studentAns, q.correctAnswer)}`;
+          btn.disabled = isAnswered; // IRREVERSIBLE
+          btn.onclick = () => handleAnswerSelect(opt.key);
+          btn.innerHTML = `
+            <span><strong>${opt.key})</strong> ${opt.text}</span>
+            ${getChoiceStatusIcon(opt.key, isAnswered, studentAns, q.correctAnswer)}
+          `;
+          list.appendChild(btn);
+        });
+        optionsArea.appendChild(list);
+      }
+
+      // Update Feedback Container
+      updateFeedbackDisplay(q, isAnswered, studentAns);
+
+      // Manage Button states
+      document.getElementById('btnBack').disabled = (currentQuestionIndex === 0);
+      
+      const isLast = (currentQuestionIndex === QUIZ_DATA.length - 1);
+      const btnNext = document.getElementById('btnNext');
+      const btnSubmit = document.getElementById('btnSubmitQuiz');
+      const btnSkip = document.getElementById('btnSkip');
+
+      if (isLast) {
+        btnNext.classList.add('hidden');
+        btnSubmit.classList.remove('hidden');
+        btnSkip.classList.add('hidden');
+      } else {
+        btnNext.classList.remove('hidden');
+        btnSubmit.classList.add('hidden');
+        btnSkip.classList.remove('hidden');
+      }
+
+      // Voice prompt trigger if enabled
+      if (narratorEnabled) {
+        speakCurrentQuestion();
+      }
+    }
+
+    // Helper: Style option button based on correctness
+    function getOptionStyle(choiceKey, isAnswered, chosenKey, correctKey) {
+      if (!isAnswered) {
+        return "bg-white hover:bg-teal-50/50 border-slate-200 text-slate-800 hover:border-teal-400 active:scale-98";
+      }
+
+      const isChosen = (choiceKey.toLowerCase() === (chosenKey || "").toLowerCase());
+      const isCorrect = (choiceKey.toLowerCase() === (correctKey || "").toLowerCase());
+
+      if (isCorrect) {
+        return "bg-emerald-50 border-2 border-emerald-500 text-emerald-900 font-bold shadow-sm";
+      }
+      if (isChosen && !isCorrect) {
+        return "bg-rose-50 border-2 border-rose-500 text-rose-900 font-bold shadow-sm animate-pulse";
+      }
+      return "bg-slate-50 border-slate-200 text-slate-400 opacity-60 cursor-not-allowed";
+    }
+
+    function getChoiceStatusIcon(choiceKey, isAnswered, chosenKey, correctKey) {
+      if (!isAnswered) return '';
+      const isChosen = (choiceKey.toLowerCase() === (chosenKey || "").toLowerCase());
+      const isCorrect = (choiceKey.toLowerCase() === (correctKey || "").toLowerCase());
+
+      if (isCorrect) {
+        return `<i class="fa-solid fa-circle-check text-emerald-600 ml-2"></i>`;
+      }
+      if (isChosen && !isCorrect) {
+        return `<i class="fa-solid fa-circle-xmark text-rose-600 ml-2"></i>`;
+      }
+      return '';
+    }
+
+    function highlightBlank(text, chosen, correct) {
+      if (!chosen) {
+        return text.replace(/_______/g, `<span class="inline-block px-3 py-0.5 border-b-2 border-teal-600 text-teal-800 font-bold bg-teal-50/50 rounded">_______</span>`);
+      }
+      const isCorrect = chosen.toLowerCase() === correct.toLowerCase();
+      const badgeClass = isCorrect 
+        ? "bg-emerald-100 text-emerald-900 border-b-2 border-emerald-600" 
+        : "bg-rose-100 text-rose-900 border-b-2 border-rose-600";
+
+      return text.replace(/_______/g, `<span class="inline-block px-3 py-0.5 rounded font-extrabold ${badgeClass}">${chosen}</span>`);
+    }
+
+    function handleAnswerSelect(choice) {
+      const q = QUIZ_DATA[currentQuestionIndex];
+      if (studentResponses.hasOwnProperty(q.id)) {
+        return; // IRREVERSIBLE: cannot modify chosen answer
+      }
+
+      studentResponses[q.id] = choice;
+      const isCorrect = isAnswerMatch(choice, q);
+
+      // Sound feedback or narration of correctness
+      if (narratorEnabled) {
+        if (isCorrect) {
+          speakText("Brilliant! That is correct.");
+        } else {
+          speakText(`Not quite. The correct answer is ${q.correctAnswer}. Let's look at the explanation.`);
+        }
+      }
+
+      renderCurrentQuestion();
+    }
+
+    function isAnswerMatch(chosen, q) {
+      if (!chosen) return false;
+      const c = chosen.trim().toLowerCase();
+      if (q.acceptableAnswers) {
+        return q.acceptableAnswers.some(ans => ans.toLowerCase() === c);
+      }
+      return c === q.correctAnswer.trim().toLowerCase();
+    }
+
+    function updateFeedbackDisplay(q, isAnswered, studentAns) {
+      const container = document.getElementById('feedbackContainer');
+      if (!isAnswered) {
+        container.classList.add('hidden');
+        return;
+      }
+
+      container.classList.remove('hidden');
+      const isCorrect = isAnswerMatch(studentAns, q);
+      const iconWrapper = document.getElementById('feedbackIconWrapper');
+      const heading = document.getElementById('feedbackHeading');
+
+      if (isCorrect) {
+        container.className = "rounded-xl p-4 border border-emerald-300 bg-emerald-50/80 mb-6 transition-all duration-300";
+        iconWrapper.className = "w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-base font-bold bg-emerald-600 text-white";
+        iconWrapper.innerHTML = `<i class="fa-solid fa-check"></i>`;
+        heading.className = "font-bold text-sm text-emerald-900";
+        heading.textContent = "Correct! Well done (ትክክል መልስ!)";
+      } else {
+        container.className = "rounded-xl p-4 border border-rose-300 bg-rose-50/80 mb-6 transition-all duration-300";
+        iconWrapper.className = "w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-base font-bold bg-rose-600 text-white";
+        iconWrapper.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+        heading.className = "font-bold text-sm text-rose-900";
+        heading.innerHTML = `Incorrect choice. Correct Answer: <strong class="underline decoration-emerald-600 text-emerald-800 ml-1">${q.correctAnswer}</strong>`;
+      }
+
+      document.getElementById('feedbackExplanationEn').textContent = q.explanationEn;
+      document.getElementById('feedbackExplanationAm').textContent = q.explanationAm;
+    }
+
+    function navigateQuestion(step) {
+      const nextIndex = currentQuestionIndex + step;
+      if (nextIndex >= 0 && nextIndex < QUIZ_DATA.length) {
+        currentQuestionIndex = nextIndex;
+        renderCurrentQuestion();
+      }
+    }
+
+    function skipQuestion() {
+      if (currentQuestionIndex < QUIZ_DATA.length - 1) {
+        showToast("Question skipped. You can return using Back button.", "info");
+        currentQuestionIndex++;
+        renderCurrentQuestion();
+      }
+    }
+
+    function promptSubmitQuiz() {
+      const answeredCount = Object.keys(studentResponses).length;
+      const totalCount = QUIZ_DATA.length;
+
+      if (answeredCount < totalCount) {
+        const unanswered = totalCount - answeredCount;
+        const confirmModal = confirm(`You still have ${unanswered} unanswered question(s). Are you sure you want to finish and submit now?`);
+        if (!confirmModal) return;
+      }
+      finalizeQuizResults();
+    }
+
+    function finalizeQuizResults() {
+      quizEndTime = new Date();
+      window.speechSynthesis.cancel();
+      setWaveState(false);
+
+      // Tally score
+      let correctTotal = 0;
+      QUIZ_DATA.forEach(q => {
+        const studentAns = studentResponses[q.id];
+        if (studentAns && isAnswerMatch(studentAns, q)) {
+          correctTotal++;
+        }
+      });
+
+      const totalItems = QUIZ_DATA.length;
+      const percentage = Math.round((correctTotal / totalItems) * 100);
+      // Scale to 40 Marks as indicated in the curriculum header
+      const scaledTo40 = Math.round((correctTotal / totalItems) * 40 * 10) / 10;
+
+      // Fill Results Screen
+      document.getElementById('quizScreen').classList.add('hidden');
+      document.getElementById('resultsScreen').classList.remove('hidden');
+
+      const sName = document.getElementById('studentName').value;
+      const sId = document.getElementById('studentId').value;
+      const sSection = document.getElementById('sectionGrade').value;
+
+      document.getElementById('resStudentName').textContent = sName;
+      document.getElementById('resStudentId').textContent = `ID: ${sId} (${sSection})`;
+      document.getElementById('resScoreText').textContent = correctTotal;
+      document.getElementById('resScaledScore').textContent = `Scaled: ${scaledTo40} / 40 Marks`;
+      document.getElementById('resPercentage').textContent = `${percentage}%`;
+
+      const passTag = document.getElementById('resPassTag');
+      if (percentage >= 50) {
+        passTag.textContent = "Passed (አልፏል)";
+        passTag.className = "text-xs font-bold px-2 py-0.5 rounded-full inline-block mt-0.5 bg-emerald-100 text-emerald-800";
+      } else {
+        passTag.textContent = "Needs Revision (ክለሳ ያስፈልገዋል)";
+        passTag.className = "text-xs font-bold px-2 py-0.5 rounded-full inline-block mt-0.5 bg-rose-100 text-rose-800";
+      }
+
+      // Calculate Duration
+      const durationSeconds = Math.round((quizEndTime - quizStartTime) / 1000);
+      const minutes = Math.floor(durationSeconds / 60);
+      const seconds = durationSeconds % 60;
+      document.getElementById('resCompletionTime').textContent = `${minutes}m ${seconds}s`;
+
+      // Render Detailed Review
+      renderDetailedReview();
+
+      // Voice Narration
+      if (narratorEnabled) {
+        speakText(`Congratulations ${sName}! You scored ${correctTotal} out of ${totalItems}. Your score has been prepared for your teacher.`);
+      }
+
+      showToast("Evaluation complete! You can now send scores to your teacher.", "success");
+    }
+
+    function renderDetailedReview() {
+      const container = document.getElementById('detailedReviewContainer');
+      container.innerHTML = '';
+
+      QUIZ_DATA.forEach(q => {
+        const studentAns = studentResponses[q.id];
+        const hasAnswered = !!studentAns;
+        const isCorrect = hasAnswered && isAnswerMatch(studentAns, q);
+
+        const row = document.createElement('div');
+        row.className = `p-3 rounded-xl border ${isCorrect ? 'bg-emerald-50/60 border-emerald-200' : 'bg-rose-50/60 border-rose-200'}`;
+
+        let questionText = q.type === 'matching' ? `Part I Matching: ${q.stem}` : (q.type === 'fill_blank' ? q.sentence : q.stem);
+
+        row.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div class="space-y-1">
+              <span class="text-xs font-bold ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                Item #${q.id} (${q.part})
+              </span>
+              <p class="text-xs sm:text-sm font-semibold text-slate-800">${questionText}</p>
+              
+              <div class="text-xs flex flex-wrap gap-x-4 gap-y-1 pt-1">
+                <span class="text-slate-600">Your Answer: <strong class="${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${hasAnswered ? studentAns : '(Skipped)'}</strong></span>
+                <span class="text-slate-600">Correct Answer: <strong class="text-emerald-700">${q.correctAnswer}</strong></span>
+              </div>
+
+              <div class="text-2xs sm:text-xs text-slate-600 pt-1.5 border-t border-slate-200/60 mt-1.5 space-y-0.5">
+                <div><strong>Rule:</strong> ${q.explanationEn}</div>
+                <div class="amharic-text text-amber-900"><strong>ማብራሪያ:</strong> ${q.explanationAm}</div>
+              </div>
+            </div>
+
+            <div class="shrink-0 text-base">
+              ${isCorrect ? '<i class="fa-solid fa-circle-check text-emerald-600"></i>' : '<i class="fa-solid fa-circle-xmark text-rose-500"></i>'}
+            </div>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function sendScoreEmail() {
+      const recipient = "mesayferedegn2@gmail.com";
+      const sName = document.getElementById('studentName').value || "Student";
+      const sId = document.getElementById('studentId').value || "Unknown ID";
+      const sSection = document.getElementById('sectionGrade').value || "Grade 4";
+
+      let correctTotal = 0;
+      QUIZ_DATA.forEach(q => {
+        if (studentResponses[q.id] && isAnswerMatch(studentResponses[q.id], q)) {
+          correctTotal++;
+        }
+      });
+
+      const totalItems = QUIZ_DATA.length;
+      const percentage = Math.round((correctTotal / totalItems) * 100);
+      const scaledMarks = Math.round((correctTotal / totalItems) * 40 * 10) / 10;
+      
+      const subject = encodeURIComponent(`Grade 4 English Quiz Result - ${sName} (${sId})`);
+      
+      let bodyContent = `OFFICIAL STUDENT ASSESSMENT REPORT\n`;
+      bodyContent += `===========================================\n`;
+      bodyContent += `Student Name: ${sName}\n`;
+      bodyContent += `Student ID  : ${sId}\n`;
+      bodyContent += `Section     : ${sSection}\n`;
+      bodyContent += `Date        : ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}\n`;
+      bodyContent += `-------------------------------------------\n`;
+      bodyContent += `RAW SCORE   : ${correctTotal} / ${totalItems} (${percentage}%)\n`;
+      bodyContent += `SCALED SCORE: ${scaledMarks} / 40.0 Marks\n`;
+      bodyContent += `STATUS      : ${percentage >= 50 ? 'PASSED' : 'NEEDS ATTENTION'}\n`;
+      bodyContent += `===========================================\n\n`;
+      bodyContent += `DETAILED ITEM RESPONSE BREAKDOWN:\n`;
+
+      QUIZ_DATA.forEach(q => {
+        const studentAns = studentResponses[q.id] || "SKIPPED";
+        const correct = isAnswerMatch(studentAns, q);
+        bodyContent += `Q${q.id} [${q.part}] - Student: ${studentAns} | Key: ${q.correctAnswer} | [${correct ? 'CORRECT' : 'WRONG'}]\n`;
+      });
+
+      bodyContent += `\nSubmitted automatically via Ethiopian Primary Curriculum Web Portal.`;
+
+      const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${encodeURIComponent(bodyContent)}`;
+      
+      // Attempt window navigation to trigger mail client
+      window.location.href = mailtoLink;
+      showToast("Email draft opened! Click 'Send' in your mail app.", "info");
+    }
+
+    function retakeAssessment() {
+      studentResponses = {};
+      currentQuestionIndex = 0;
+      quizStartTime = new Date();
+      document.getElementById('resultsScreen').classList.add('hidden');
+      document.getElementById('quizScreen').classList.remove('hidden');
+      renderCurrentQuestion();
+      showToast("Quiz reset. Good luck!", "info");
+    }
+
+    function showToast(message, type = "info") {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+
+      toastMsg.textContent = message;
+      if (type === "success") {
+        toastIcon.className = "fa-solid fa-circle-check text-emerald-400 text-lg";
+      } else if (type === "error") {
+        toastIcon.className = "fa-solid fa-triangle-exclamation text-rose-400 text-lg";
+      } else {
+        toastIcon.className = "fa-solid fa-circle-info text-teal-400 text-lg";
+      }
+
+      toast.classList.remove('translate-y-32');
+      setTimeout(() => {
+        toast.classList.add('translate-y-32');
+      }, 3500);
+    }
+
+    // Window Init
+    window.onload = function() {
+      initSpeechSynthesis();
+    };
+  </script>
+</body>
+</html>
